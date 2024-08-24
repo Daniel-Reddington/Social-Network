@@ -63,6 +63,11 @@ public class UserAccountPortImpl implements UserAccountPort {
     }
 
     @Override
+    public UserAccount findByUsername(String username) {
+        return null;
+    }
+
+    @Override
     public boolean delete(ObjectId userId) {
         return userAccountRepository.deleteById(userId);
     }

@@ -1,5 +1,6 @@
 package org.acme.application.services;
 
+import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.acme.application.port.driven.UserAccountPort;
@@ -37,9 +38,7 @@ public class UserAccountUserCaseImpl implements UserAccountUseCase {
     public UserAccount updateAccount(ObjectId userId, UserAccountRequest userAccountRequest) {
 
         UserAccount userAccount = userAccountPort.findByUserId(userId);
-        System.out.println("ancien : "+userAccount);
         userAccountMapper.updateUserAccountFromRequest(userAccountRequest, userAccount);
-        System.out.println("après : "+userAccount);
         return userAccountPort.update(userAccount);
 
     }
@@ -53,6 +52,12 @@ public class UserAccountUserCaseImpl implements UserAccountUseCase {
     @Override
     public UserAccountResponse findByEmail(String email) {
         UserAccount userAccount = userAccountPort.findByEmail(email);
+        return userAccountMapper.userAccountToResponse(userAccount);
+    }
+
+    @Override
+    public UserAccountResponse findByUsername(String username) {
+        UserAccount userAccount = userAccountPort.findByUsername(username);
         return userAccountMapper.userAccountToResponse(userAccount);
     }
 

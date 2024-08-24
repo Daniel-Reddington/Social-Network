@@ -12,5 +12,6 @@ public interface UserAccountUseCase {
     UserAccount updateAccount(ObjectId userId, UserAccountRequest userAccountRequest);
     List<UserAccountResponse> findAll();
     UserAccountResponse findByEmail(String email);
+    UserAccountResponse findByUsername(String username);
     boolean delete(ObjectId userId);
 }

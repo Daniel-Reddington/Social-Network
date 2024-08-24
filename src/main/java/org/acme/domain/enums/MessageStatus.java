@@ -1,2 +1,5 @@
-package org.acme.domain.enums;public enum MessageStatus {
+package org.acme.domain.enums;
+
+public enum MessageStatus {
+    SENT,DELIVERED,READ
 }

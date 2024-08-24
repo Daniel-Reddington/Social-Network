@@ -11,5 +11,6 @@ public interface UserAccountPort {
     UserAccount findByUserId(ObjectId userId);
     List<UserAccount> findAll();
     UserAccount findByEmail(String email);
+    UserAccount findByUsername(String username);
     boolean delete(ObjectId userId);
 }

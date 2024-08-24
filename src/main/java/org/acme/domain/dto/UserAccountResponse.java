@@ -1,16 +1,17 @@
 package org.acme.domain.dto;
 
+import org.acme.domain.enums.Gender;
 import org.bson.types.ObjectId;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public record UserAccountResponse(
         ObjectId id,
-        String email,
         String username,
-        String phoneNumber,
-        LocalDateTime createdAt,
-        LocalDateTime updatedAt,
-        Boolean isActive
+        String email,
+        String profilePicture,
+        String bio,
+        LocalDate dateOfBirth,
+        Gender gender
 ) {
 }
